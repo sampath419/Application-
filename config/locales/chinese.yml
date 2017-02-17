@@ -1,0 +1,97 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+chinese:
+  language:
+        english: '英语'
+        arabic: '阿拉伯'
+        chinese: '中文'
+        dutch: '荷兰语'
+        french: '法语'
+        german: '德语'
+        hindi: '印地语'
+        italian: '意大利语'
+        portuguese: '葡萄牙语'
+        romanian: '罗马尼亚语'
+        russian: '俄语'
+        spanish: '西班牙语'
+        swedish:  '瑞典'
+        turkish: '土耳其'
+  measurement_type:
+        kgs: '公斤'
+        lbs: '磅'
+  waste_log:
+    index:
+      title: '输入重量'
+      store_titile: '商店'
+      log_waste: '日志废物'
+      weight_placeholder: '输入重量'
+      date: '日期'
+      submitted_by: '由...所提交'
+      material: '材料'
+      weight: '重量'
+      action: '行动'
+      remove: '去掉'
+      last7 : '最近7天'
+      last30 : '最近30天'
+      charttitle: '废物日志'
+      store_alert: 'Currently Store is not enabled'
+    types:
+      classicRecycling: '经典回收'
+      occCardboard: 'OCC纸板'
+      organicWaste: '有机废物'
+      operationalWaste: '其他操作废物'
+      divertedWaste: '转移废物'
+  drop_list:
+    wastetype:
+      head: '废物类型'
+      sidehead_a: '纸板'
+      des_1: '回收和废物运输公司在纸板方面使用术语OCC。瓦楞纸板可以通过其多层结构容易地识别; 纸张之间的凹槽或波浪中间层保持瓦楞纸板光，并赋予其承载产品的强度。'
+      sidehead_b: '经典回收'
+      des_3: '包括来自蓝色回收容器的所有废物。材料包括瓶子，罐，纸，纸板（不在单独的纸板回收中捕获）'
+      sidehead_c: '有机废物'
+      des_4: '包括来自绿色回收容器的废物。包括食品废物，可堆肥食品容器，餐巾纸和纸巾，以及脏纸板（例如比萨饼盒）'
+      sidehead_d: '其他操作废物'
+      des_5: '包括灰色回收容器中的废物。这是所有的浪费，不包括在其他仓。'
+  drop_list_b:    
+    feedback:
+      head: '反馈'
+      body: '你如何评价你的经验？'
+      text: '补充评论'
+      submit: '提交'
+  drop_list_c:
+    settings:
+      head: '帐号设定'
+      heading_a: '默认存储'
+      heading_b: '默认重量测量'
+      save: '保存'
+  drop_list_d:
+    logout: 
+      head: '登出？'
+      body: '您将丢失所有未保存的条目'
+      confirm: '确认'
+  drop_content:
+      wastetype: '废物类型'
+      feedback: '反馈'
+      settings: '设置'
+      logout: '登出'
+      language: '语言'
+  

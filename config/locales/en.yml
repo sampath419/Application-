@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  language:
+      english: 'English'
+      arabic: 'Arabic'
+      chinese: 'Chinese'
+      dutch: 'Dutch'
+      french: 'French'
+      german: 'German'
+      hindi: 'Hindi'
+      italian: 'Italian'
+      portuguese: 'Portuguese'
+      romanian: 'Romanian'
+      russian: 'Russian'
+      spanish: 'Spanish'
+      swedish:  'Swedish'
+      turkish: 'Turkish'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Enter Weight'
+      store_titile: 'Store'
+      log_waste: 'Log Waste'
+      weight_placeholder: 'Enter Weight'
+      date: 'Date'
+      submitted_by: 'Submitted By'
+      material: 'Material'
+      weight: 'Weight'
+      action: 'Action'
+      remove: 'Remove'
+      last7 : 'Last 7 Days'
+      last30 : 'Last 30 Days'
+      charttitle: 'Waste Log'
+      store_alert: 'Currently Store is not enabled'
+    types:
+      classicRecycling: 'Classic Recycling'
+      occCardboard: 'OCC Cardboard'
+      organicWaste: 'Organic Waste'
+      operationalWaste: 'Other Operational Waste'
+      divertedWaste: 'Diverted Waste'
+  drop_list:
+    wastetype:
+      head: 'Waste Types'
+      sidehead_a: 'Cardboard'
+      des_1: 'Recycling and waste haulers use the term OCC in reference to cardboard. Corrugated cardboard can easily be recognized by its multiple layer structure; the fluted or wavy middle layer between sheets of paper keeps corrugated board light and gives it the strength to carry products.'
+      sidehead_b: 'Classic Recycling'
+      des_3: 'Includes all waste from blue recycling containers.  Materials include bottles, cans, paper, cardboard (not captured in separate cardboard recycling)'
+      sidehead_c: 'Organic Waste'
+      des_4: 'Includes waste from the green recycling container(s).  Includes food waste, compostable food containers, napkins and paper towels, and dirty cardboard (e.g. pizza boxes)'
+      sidehead_d: 'Other Operational Waste'
+      des_5: 'Includes waste from the gray recycling containers.  It is all waste that is not included in the other bins.'
+  drop_list_b:    
+    feedback:
+      head: 'Feedback'
+      body: 'How would you rate your experience?'
+      text: 'Additional Comments'
+      submit: 'SUBMIT'
+  drop_list_c:
+    settings:
+      head: 'Account Settings'
+      heading_a: 'Default Store'
+      heading_b: 'Default Weight Measure'
+      save: 'SAVE'
+  drop_list_d:
+    logout: 
+      head: 'Logout?'
+      body: 'You will lose any unsaved entries'
+      confirm: 'CONFIRM'
+  drop_content:
+      wastetype: 'Waste Type'
+      feedback: 'Feedback'
+      settings: 'Settings'
+      logout: 'Logout'
+      language: 'Language'
+
+
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dsid: 1
+  measurement_type_id: 1
+  store_id: 1
+
+two:
+  dsid: 1
+  measurement_type_id: 1
+  store_id: 1

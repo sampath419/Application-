@@ -1,0 +1,101 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+romanian:
+  language:
+      english: 'Engleză'
+      arabic: 'arabic'
+      chinese: 'chinez'
+      dutch: 'olandeză'
+      french: 'limba franceza'
+      german: 'limba germana'
+      hindi: 'hindi'
+      italian: 'Italiană'
+      portuguese: 'portugheză'
+      romanian: 'Română'
+      russian: 'Rusă'
+      spanish: 'Spaniolă'
+      swedish: 'suedez'
+      turkish: 'turc'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'introduceţi greutatea'
+      store_titile: 'Magazin'
+      log_waste: 'Deșeuri log'
+      weight_placeholder: 'introduceţi greutatea'
+      date: 'Data'
+      submitted_by: 'Trimis de'
+      material: 'Material'
+      weight: 'Greutate'
+      action: 'Acțiune'
+      remove: 'Elimina'
+      last7 : 'Ultimele 7 zile'
+      last30 : 'Ultimele 30 de zile'
+      charttitle: 'jurnal de deșeuri'
+    types:
+      classicRecycling: 'CReciclarea clasică'
+      occCardboard: 'OCC carton'
+      organicWaste: 'Deseuri organice'
+      operationalWaste: 'Alte deșeuri rezultate operaționale'
+      divertedWaste: 'Deșeuri deturnate'
+  drop_list:
+    wastetype:
+      head: 'Tipuri de deșeuri'
+      sidehead_a: 'Carton'
+      des_1: 'Reciclare și deșeuri articulate utiliza termenul OCC în referire la carton. carton ondulat poate fi ușor de recunoscut prin structura sa cu mai multe straturi; stratul de mijloc cutat sau ondulat între foi de hârtie păstrează lumina din carton ondulat și îi conferă puterea de a transporta produse.'
+      sidehead_b: 'Reciclarea clasică'
+      des_3: 'Include toate deșeurile din containere de reciclare albastre. Materialele includ sticle, cutii de conserve, hârtie, carton (nu capturat în reciclare carton separat)'
+      sidehead_c: 'Deseuri organice'
+      des_4: 'Sunt incluse deșeurile din containerul de reciclare verde (e). Include deșeuri alimentare, recipiente pentru alimente compostabile, șervețele și prosoape de hârtie și carton murdar (de exemplu, cutii de pizza)'
+      sidehead_d: 'Alte deșeuri rezultate operaționale'
+      des_5: 'Sunt incluse deșeurile din containere de reciclare gri. Este toate deșeurile care nu sunt incluse în celelalte pubele.'
+  drop_list_b:    
+    feedback:
+      head: 'Parere'
+      body: 'Cum v-ați evalua experiența?'
+      text: 'Comentarii suplimentare'
+      submit: 'A DEPUNE'
+  drop_list_c:
+    settings:
+      head: 'Setările contului'
+      heading_a: 'implicit Magazin'
+      heading_b: 'Implicit Greutate Măsură'
+      save: 'SALVAȚI'
+  drop_list_d:
+    logout: 
+      head: 'Deconectezi?'
+      body: 'Veți pierde înregistrări nesalvate'
+      confirm: 'A CONFIRMA'
+  drop_content:
+      wastetype: 'Tipuri de deșeuri'
+      feedback: 'Parere'
+      settings: 'setările'
+      logout: 'Deconectezi'
+      language: 'limba'
+  
+
+
+
+
+

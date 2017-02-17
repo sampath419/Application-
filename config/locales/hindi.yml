@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+hindi:
+  language:
+        english: 'अंग्रेज़ी'
+        arabic: 'अरबी'
+        chinese: 'चीनी'
+        dutch: 'डच'
+        french: 'फ्रेंच'
+        german: 'जर्मन'
+        hindi: 'हिंदी'
+        italian: 'इतालवी'
+        portuguese: 'पुर्तगाली'
+        romanian: 'रोमानियाई'
+        russian: 'रूसी'
+        spanish: 'स्पेनिश'
+        swedish:  'स्वीडिश'
+        turkish: 'तुर्की'
+  measurement_type:
+        kgs: 'किलोग्राम'
+        lbs: 'एलबीएस  '
+  waste_log:
+    index:
+      title: 'वजन दर्ज करें'
+      store_titile: 'दुकान'
+      log_waste: 'लॉग अपशिष्ट'
+      weight_placeholder: 'वजन दर्ज करें'
+      date: 'तारीख'
+      submitted_by: 'द्वारा प्रस्तुत'
+      material: 'सामग्री'
+      weight: 'वजन'
+      action: 'कार्य'
+      remove: 'हटाना'
+      last7 : 'पिछले 7 दिन'
+      last30 : 'पिछले 30 दिनों में'
+      charttitle: 'अपशिष्ट लॉग'
+    types:
+      classicRecycling: 'क्लासिक पुनर्चक्रण'
+      occCardboard: 'ओसीसी गत्ता'
+      organicWaste: 'जैविक अपशिष्ट'
+      operationalWaste: 'अन्य परिचालन अपशिष्ट'
+      divertedWaste: 'बँट अपशिष्ट'
+  drop_list:
+    wastetype:
+      head: 'अपशिष्ट के प्रकार'
+      sidehead_a: 'गत्ता'
+      des_1: 'पुनर्चक्रण और अपशिष्ट haulers संदर्भ में इस शब्द का उपयोग ओसीसी गत्ता। नालीदार गत्ते आसानी से अपने कई परत संरचना द्वारा मान्यता प्राप्त किया जा सकता है; कागज की चादरों के बीच fluted या लहराती मध्यम परत नालीदार बोर्ड प्रकाश रहता है और यह ताकत उत्पादों ले जाने के लिए देता है।'
+      sidehead_b: 'क्लासिक पुनर्चक्रण'
+      des_3: 'नीले रंग की रीसाइक्लिंग कंटेनरों से सब बेकार शामिल है। सामग्री की बोतलें, डिब्बे, कागज, गत्ता (अलग गत्ता रीसाइक्लिंग में कब्जा नहीं) शामिल'
+      sidehead_c: 'जैविक अपशिष्ट'
+      des_4: 'हरे रंग की रीसाइक्लिंग कंटेनर (एस) से अपशिष्ट भी शामिल है। खाद्य अपशिष्ट, खाद खाद्य कंटेनर, नैपकिन और कागज तौलिये, और गंदे गत्ता (जैसे पिज्जा बक्से) शामिल'
+      sidehead_d: 'अन्य परिचालन अपशिष्ट'
+      des_5: 'ग्रे रिसाइकिलिंग कंटेनर से अपशिष्ट भी शामिल है। यह सब बेकार है कि अन्य डिब्बे में शामिल नहीं है।'
+  drop_list_b:    
+    feedback:
+      head: 'प्रतिक्रिया'
+      body: 'आपके द्वारा आपके अनुभव का मूल्यांकन किस तरह किया जाएगा?'
+      text: 'अतिरिक्त टिप्पणियां'
+      submit: 'जमा करें'
+  drop_list_c:
+    settings:
+      head: 'अकाउंट सेटिंग'
+      heading_a: 'डिफ़ॉल्ट संग्रह'
+      heading_b: 'डिफ़ॉल्ट वजन को मापने'
+      save: 'बचाना'
+  drop_list_d:
+    logout: 
+      head: 'लोग आउट?'
+      body: 'आप किसी भी सहेजे न गए प्रविष्टियों को खो देंगे'
+      confirm: 'की पुष्टि करें'
+  drop_content:
+      wastetype: 'अपशिष्ट के प्रकार'
+      feedback: 'प्रतिक्रिया'
+      settings: 'अकाउंट सेटिंग'
+      logout: 'लोग आउट'
+      language: 'भाषा'
+  
+
+
+
+

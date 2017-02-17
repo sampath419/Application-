@@ -1,0 +1,24 @@
+<div class="modal fade" id="logoutID" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="text-align: center;"></h4>
+        <h1 class="wastetypepop_head"><%= t('drop_list_d.logout.head') %></h1>
+
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <p class="logout_body"><%= t('drop_list_d.logout.body') %></p>
+        <button type="submit" class="logout_button logout_confirm" value="Submit" ><%= t('drop_list_d.logout.confirm') %></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  $('.logout_confirm').click(function(){
+      $.post('account/logout');
+      $('#logoutID').hide();
+      $('.modal-backdrop').remove();
+  })
+</script>

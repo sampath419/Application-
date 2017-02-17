@@ -1,0 +1,99 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+arabic:
+  language:
+        english: 'الإنجليزية'
+        arabic: 'عربى'
+        chinese: 'صينى'
+        dutch: 'هولندي'
+        french: 'الفرنسية'
+        german: 'ألمانية'
+        hindi: 'الهندية'
+        italian: 'الإيطالي'
+        portuguese: 'البرتغالية'
+        romanian: 'روماني'
+        russian: 'الروسية'
+        spanish: 'الأسبانية'
+        swedish:  'اللغة السويدية'
+        turkish: 'اللغة التركية'
+  measurement_type:
+        kgs: 'كلغ'
+        lbs: 'رطل'
+  waste_log:
+    index:
+      title: 'أدخل الوزن'
+      store_titile: 'متجر'
+      log_waste: 'سجل النفايات'
+      weight_placeholder: 'أدخل الوزن'
+      date: 'تاريخ'
+      submitted_by: 'مقدم من'
+      material: 'مواد'
+      weight: 'وزن'
+      action: 'عمل'
+      remove: 'إزالة'
+      last7 : 'آخر 7 أيام'
+      last30 : 'آخر 30 أيام'
+      charttitle: 'سجل النفايات'
+      store_alert: 'Currently Store is not enabled'
+    types:
+      classicRecycling: 'إعادة تدوير الكلاسيكية'
+      occCardboard: 'أورينت كرتون'
+      organicWaste: 'النفايات العضوية'
+      operationalWaste: 'النفايات التشغيلية الأخرى'
+      divertedWaste: 'النفايات تحويل'
+  drop_list:
+      wastetype:
+        head: 'أنواع النفايات'
+        sidehead_a: 'ورق مقوى'
+        des_1: 'إعادة تدوير النفايات والناقلين تستخدم أورينت المدى في إشارة إلى الكرتون. الكرتون المموج يمكن بسهولة المعترف بها من قبل هيكلها طبقة متعددة. وطبقة وسطى مخدد أو المتموجة بين ورقة من الورق تبقي ضوء الكرتون المموج ويعطيها القوة لتحمل المنتجات.'
+        sidehead_b: 'إعادة تدوير الكلاسيكية'
+        des_3: 'يشمل جميع النفايات من الحاويات إعادة التدوير الزرقاء. وتشمل المواد الزجاجات وعلب الصفيح والورق والورق المقوى (لا المأسورة في إعادة تدوير الورق المقوى منفصل)'
+        sidehead_c: 'النفايات العضوية'
+        des_4: 'تشمل النفايات من الحاويات إعادة التدوير الخضراء (ق). يتضمن فضلات الطعام، وحاويات المواد الغذائية سماد والمناديل والمناشف الورقية، والكرتون القذرة (مثل صناديق البيتزا)'
+        sidehead_d: 'النفايات التشغيلية الأخرى'
+        des_5: 'يشمل النفايات من الحاويات إعادة التدوير الرمادية. ومن كل النفايات التي لم يتم تضمينها في صناديق أخرى.'
+  drop_list_b:    
+      feedback:
+        head: 'ردود الفعل'
+        body: 'كيف تقيم تجربتك'
+        text: 'تعليقات اضافية'
+        submit: 'عرض'
+  drop_list_c:
+      settings:
+        head: 'إعدادت الحساب'
+        heading_a: 'افتراضي مخزن'
+        heading_b: 'افتراضي الوزن قياس'
+        save: 'حفظ'
+  drop_list_d:
+      logout: 
+        head: 'الخروج؟'
+        body: 'ستفقد أية إدخالات غير محفوظة'
+        confirm: 'تؤكد'
+  drop_content:
+        wastetype: 'أنواع النفايات'
+        feedback: 'ردود الفعل'
+        settings: 'إعدادات'
+        logout: 'الخروج'
+        language: 'لغة'
+
+
+

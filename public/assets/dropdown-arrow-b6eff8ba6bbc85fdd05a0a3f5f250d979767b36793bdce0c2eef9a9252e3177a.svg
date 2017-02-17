@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-dark-chevron-down</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="/" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="quote-grid" sketch:type="MSArtboardGroup" transform="translate(-500.000000, -410.000000)" fill="#000000">
+            <g id="Column" sketch:type="MSLayerGroup" transform="translate(132.000000, 120.000000)">
+                <g id="Forms-/-Location-Type" transform="translate(0.000000, 250.000000)" sketch:type="MSShapeGroup">
+                    <path d="M379.997768,41.0714286 C379.997768,41.1681552 379.960566,41.2537199 379.886161,41.328125 L374.685268,46.5290179 C374.610863,46.603423 374.525298,46.640625 374.428571,46.640625 C374.331845,46.640625 374.24628,46.603423 374.171875,46.5290179 L368.970982,41.328125 C368.896577,41.2537199 368.859375,41.1681552 368.859375,41.0714286 C368.859375,40.9747019 368.896577,40.8891373 368.970982,40.8147321 L369.529018,40.2566964 C369.603423,40.1822913 369.688988,40.1450893 369.785714,40.1450893 C369.882441,40.1450893 369.968006,40.1822913 370.042411,40.2566964 L374.428571,44.6428571 L378.814732,40.2566964 C378.889137,40.1822913 378.974702,40.1450893 379.071429,40.1450893 C379.168155,40.1450893 379.25372,40.1822913 379.328125,40.2566964 L379.886161,40.8147321 C379.960566,40.8891373 379.997768,40.9747019 379.997768,41.0714286 L379.997768,41.0714286 Z" id="icon-dark-chevron-down"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

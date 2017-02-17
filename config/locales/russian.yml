@@ -1,0 +1,102 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+russian:
+  language:
+      english: 'английский'
+      arabic: 'арабский'
+      chinese: 'Китайский'
+      dutch: 'Голландский'
+      french: 'Французский'
+      german: 'Немецкий'
+      hindi: 'хинди'
+      italian: 'итальянский'
+      portuguese: 'португальский'
+      romanian: 'румынский'
+      russian: 'русский'
+      spanish: 'испанский'
+      swedish: 'шведский язык'
+      turkish: 'турецкий'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Введите вес'
+      store_titile: 'хранить'
+      log_waste: 'Журнал отходов'
+      weight_placeholder: 'Введите вес'
+      date: 'Дата'
+      submitted_by: 'Представленный'
+      material: 'материал'
+      weight: 'вес'
+      action: 'действие'
+      remove: 'Удалить'
+      last7 : 'За последние 7 дней'
+      last30 : 'Последние 30 дней'
+      charttitle: 'журнал отходов'
+    types:
+      classicRecycling: 'Классический переработка'
+      occCardboard: 'OCC картон'
+      organicWaste: 'Органические отходы'
+      operationalWaste: 'Прочие операционные отходы'
+      divertedWaste: 'Переадресованные отходов'
+  drop_list:
+    wastetype:
+      head: 'Виды отходов'
+      sidehead_a: 'картон'
+      des_1: 'Утилизация и переработка отходов автоперевозчики используют термин ОКК со ссылкой на картон. Гофрокартон можно легко распознать по его многослойной структуре; рифленую или волнистая средний слой между листами бумаги держит гофрокартон свет и придает ему силы нести продукты.'
+      sidehead_b: 'Классический переработка'
+      des_3: 'Включает в себя все отходы из синих переработки контейнеров. Материалы включают в себя бутылки, банки, бумага, картон (не учитываются в отдельной картонной рециркуляции)'
+      sidehead_c: 'Органические отходы'
+      des_4: 'Включает в себя отходы из зеленого контейнера (ов) по переработке отходов. Включает в себя пищевые отходы, биоразлагаемые контейнеры для пищевых продуктов, салфетки и бумажные полотенца, и грязный картон (например, коробки для пиццы)'
+      sidehead_d: 'Прочие операционные отходы'
+      des_5: 'Включает в себя отходы из серой переработки контейнеров. Это все отходы, не включенные в другие контейнеры.'
+  drop_list_b:    
+    feedback:
+      head: 'Обратная связь'
+      body: 'Как вы оцените свой опыт?'
+      text: 'Дополнительные комментарии'
+      submit: 'ОТПРАВИТЬ'
+  drop_list_c:
+    settings:
+      head: 'Настройки аккаунта'
+      heading_a: 'По умолчанию магазин'
+      heading_b: 'По умолчанию Вес Мера'
+      save: 'СПАСТИ'
+  drop_list_d:
+    logout: 
+      head: 'Выйти?'
+      body: 'Вы потеряете все несохраненные записи'
+      confirm: 'ПОДТВЕРДИТЬ'
+  drop_content:
+      wastetype: 'Виды отходов'
+      feedback: 'Обратная связь'
+      settings: 'настройки'
+      logout: 'Выйти'
+      language: 'язык'
+  
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Analytics</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-default header">
+    <span class="header_logo"><img src="/assets/logo.png" width="25" height="30"></img></span>
+    <%if params[:controller]=='waste_log'%>
+        <div class="dropdown ">
+        <div class="dropdown-language" tabindex="-1">
+          <button class="dropbtn_language" tabindex="1" accesskey="C"><span tabindex="-1" class=""><%= t('drop_content.language') %></span>
+            <span class="dropbtn_span" tabindex="-1"></span>
+          </button>
+          <div class="dropdown-content dropdown-language-content">
+            <a data-href="/?locale=arabic" tabindex="2"><span class="lang-sm lang-lbl-full" lang="ar"></span></a>
+            <a data-href="/?locale=chinese" tabindex="3"><span class="lang-sm lang-lbl-full" lang="zh"></span></a>
+            <a data-href="/?locale=dutch" tabindex="4"><span class="lang-sm lang-lbl-full" lang="nl"></span></a>
+            <a data-href="/?locale=en" tabindex="5"><span class="lang-sm lang-lbl-full" lang="en"></span></a>
+            <a data-href="/?locale=french" tabindex="6"><span class="lang-sm lang-lbl-full" lang="fr"></span></a>
+            <a data-href="/?locale=german" tabindex="7"><span class="lang-sm lang-lbl-full" lang="de"></span></a>
+            <a data-href="/?locale=hindi" tabindex="8"><span class="lang-sm lang-lbl-full" lang="hi"></span></a>
+            <a data-href="/?locale=italian" tabindex="9"><span class="lang-sm lang-lbl-full" lang="it"></span></a>
+            <a data-href="/?locale=portuguese" tabindex="10"><span class="lang-sm lang-lbl-full" lang="pt"></span></a>
+            <a data-href="/?locale=romanian" tabindex="11"><span class="lang-sm lang-lbl-full" lang="ro"></span></a>
+            <a data-href="/?locale=russian" tabindex="12"><span class="lang-sm lang-lbl-full" lang="ru"></span></a>
+            <a data-href="/?locale=spanish" tabindex="13"><span class="lang-sm lang-lbl-full" lang="es"></span></a>
+            <a data-href="/?locale=swedish" tabindex="14"><span class="lang-sm lang-lbl-full" lang="sv"></span></a>
+            <a data-href="/?locale=turkish" tabindex="15"><span class="lang-sm lang-lbl-full" lang="tr"></span></a>
+          </div>
+        </div>
+
+        <div class="dropdown-user" tabindex="-1">
+          <button class="dropbtn dropbtn_userinfo" tabindex="16" accesskey="U"><span tabindex="-1" class="dropbtn_user_image"></span><span class="dropbtn_user_name"><%= session[:user]['lastName'].to_s + " " + session[:user]['firstName'].to_s%></span>
+            <span class="dropbtn_span" tabindex="-1"></span>
+          </button>
+          <div class="dropdown-content dropdown-user-content">
+            <a href="#" accesskey="T" data-toggle="modal" data-target="#wasteTypeID" tabindex="17"><%= t('drop_content.wastetype') %></a>
+            <a href="#" accesskey="F" data-toggle="modal" data-target="#feedbackID" tabindex="18"><%= t('drop_content.feedback') %></a>
+            <a href="#" accesskey="Q" data-toggle="modal" data-target="#settingID" tabindex="19"><%= t('drop_content.settings') %></a>
+            <a href="#" accesskey="X" data-toggle="modal" data-target="#logoutID" tabindex="20"><%= t('drop_content.logout') %></a>
+          </div>
+        </div>
+        </div>
+
+    <%end%>
+  </nav>
+  <%= yield %>
+<%= render partial: 'layouts/waste_type_popup'%>
+<%= render partial: 'layouts/feedback_popup'%>
+<%= render partial: 'layouts/settings_popup'%>
+<%= render partial: 'layouts/logout_popup'%>
+
+<script>
+
+document.onkeydown = keyDownAccess;
+
+function keyDownAccess(e){
+  console.log(e.keyCode);
+   
+  if(e.ctrlKey && e.keyCode == 49){
+    console.log('control clllicked  andA');
+    var elem= document.getElementById('wt_1');
+    console.log(elem);
+    waste_type_update(elem,{id: "1", name: "OCC Cardboard"});
+  }
+   
+  if(e.ctrlKey && e.keyCode == 50){
+    console.log('control clllicked  andA');
+    var elem= document.getElementById('wt_2');
+    console.log(elem);
+    waste_type_update(elem,{id: "2", name: "Classic Recycling"});
+  }
+   
+  if(e.ctrlKey && e.keyCode == 51){
+    console.log('control clllicked  andA');
+    var elem= document.getElementById('wt_3');
+    console.log(elem);
+    waste_type_update(elem,{id: "3", name: "Organic Waste"});
+  }
+   
+  if(e.ctrlKey && e.keyCode == 52){
+    console.log('control clllicked  andA');
+    var elem= document.getElementById('wt_4');
+    console.log(elem);
+    waste_type_update(elem,{id: "4", name: "Other Operational Waste"});
+  }
+}
+
+$(document).ready(function(){
+    $('.dropdown').mouseover(function(){
+        $('.dropdown-country').children().css('display','block');
+    });
+    $('.dropdown-country a').click(function(ele){
+        $(this).parent().children().css('display','none');
+        window.relocation = $(this).dataset('url');
+    });
+
+    $('.dropdown-language-content a').click(function(ele){
+        $(this).parent().children().css('display','none');
+        console.log($(this)[0]);
+        window.location = $(this)[0].getAttribute('data-href');
+    });
+    $('.dropdown-language-content a').keypress(function (e) {
+        var key = e.which;
+        console.log($(this));
+        if(key == 13)  // the enter key code
+        {
+            window.location = $(this)[0].getAttribute('data-href');
+        }
+    });
+});
+
+
+</script>
+  </body>
+</html>

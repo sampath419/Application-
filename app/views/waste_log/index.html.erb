@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-xs-4 col-sm-2 col-md-2"></div>
+  <div class="col-xs-4 col-sm-2 col-md-8" >
+    <%logs_locale = 'waste_log.index'%>
+    <h1 class="panel-title"><%= t('waste_log.index.title') %></h1>
+
+    <form name="wasteLog.form" tabindex="-1" action="waste_log/create" class="wasteEditor" data-remote='true' method="post" >
+    <div class="formGroup">
+      <label class='store_title' tabindex="-1" for="sel1"><%= t('waste_log.index.store_titile') %></label>
+      <select accesskey="S" data-live-search="true" class="form-control" id="store_id" name="store_id" tabindex="20">
+        <%@stores.each do |store|%>
+            <option value="<%=store.rollout%>__<%=store.pilot_enable%>"><%=store.rollout%> - <%=store.name%></option>
+        <%end%>
+      </select>
+
+    </div>
+
+      <div class="formGroup wasteEditor-wasteTypes" >
+    <%@waste_types.each_with_index do |type,index|%>
+    <a tabindex="<%=21+index%>" href="javascript:void(0);" onclick='waste_type_update(this,{id: "<%=type.id%>", name: "<%=t 'waste_log.types.'+type.name%>"})'
+          class="wasteEditor-wasteType wasteEditor-wasteType--<%= type.name%>" id='wt_<%=type.id%>'>
+            <%=t 'waste_log.types.'+type.name%></a>
+    <%end%>
+
+        </div>
+      <div>
+        <label tabindex="-1" class="form-group-wastelog-label date_title"><%= t('waste_log.index.date') %></label>
+      </div>
+      <div class="form-group form-group-wastelog">
+        <input tabindex="25" accesskey="D" name='collection_date' id="log_date" class="formControl formControl--datePicker" name="submissionDate" value="<%=Date.today().strftime('%m/%d/%Y')%>" required />
+      </div>
+      <div>
+        <span tabindex="-1" id="waste_type_title" class="form-group-wastelog-label"></span>
+      </div>
+      <div class="form-group form-group-wastelog">
+        <input tabindex="-1" type="hidden" name="waste_type_id" value="" id="waste_type_id">
+        <input tabindex="-1" type="hidden" name="locale" value="<%=params[:locale]%>">
+        <input accesskey="W" tabindex="26" type="text" name="quantity" id="quantity" onkeypress="return validateFloatKeyPress(this,event);" placeholder="<%= t('waste_log.index.weight_placeholder') %>"
+               class="formControl formControl--large u-textAlignCenter" required />
+      </div>
+      <span class="measurement_type">
+           <a accesskey="K" tabindex="27" href="javascript:void(0);" onclick="select_measurement_type(this,<%=@measurement_types[0].id%>)" class="<%=@measurement_types[0].id==@default_measurement ? 'selected' : ''%>"><%=t 'measurement_type.'+@measurement_types[0].name.downcase%></a>
+           <a accesskey="L" tabindex="27" href="javascript:void(0);" onclick="select_measurement_type(this,<%=@measurement_types[1].id%>)" class="<%=@measurement_types[1].id==@default_measurement ? 'selected' : ''%>"><%=t 'measurement_type.'+@measurement_types[1].name.downcase%></a>
+      </span>
+      <div>
+      <input type="hidden" tabindex="-1" name="measurement_type_id" value="<%=@default_measurement%>" id="measurement_type_id">
+      </div>
+    <br>
+    <button accesskey="E" type="submit" tabindex="29" class="log_submit_button" onclick="return ValidateForm();" position="relative"; ><%= t('waste_log.index.log_waste') %></button>
+    </form>
+  </div>
+  <div class="col-xs-4 col-sm-2 col-md-2"></div> 
+
+</div>
+<%= render partial: 'log_entry', locals: {logs: @waste_logs}  %>
+
+
+<script type="text/javascript">
+  function select_measurement_type(element,measurement_id){
+      $('.measurement_type a.selected').removeClass('selected')
+      $(element).addClass('selected');
+      document.getElementById('measurement_type_id').value = measurement_id;
+  }
+  function waste_type_update(element, wastetype){
+      document.getElementById('waste_type_title').innerHTML = wastetype.name;
+      document.getElementById('waste_type_id').value = wastetype.id;
+      $('.is-active').removeClass('is-active')
+      $(element).addClass('is-active');
+  }
+
+  function ValidateForm(){
+      var waste_type = document.getElementById('waste_type_id').value;
+      var quantity = document.getElementById('quantity').value;
+      if(waste_type=='') {
+          alert('Please choose waste type');
+          return false;
+      }
+      if(quantity == '' || quantity <= 0) {
+          alert('Please enter valid weight')
+          return false;
+      };
+  }
+    var picker = new Pikaday(
+            {
+                field: document.getElementById('log_date'),
+                format: 'MM/DD/YYYY',
+                minDate: new Date
+            });
+
+        $("#store_id").change(function() {
+            var store_value = $('#store_id :selected').val().split('__');
+            var pilot_enable = store_value[1];
+            if(pilot_enable == 'true'){
+                $('.log_submit_button.not_active').toggleClass('not_active','active');
+            }
+            else{
+                alert("Currently Store is not enabled");
+                $('.log_submit_button').toggleClass('not_active','active');
+            }
+            var store_rollout = store_value[0];
+            var filter_type = $('.filter_type a.selected').children().val();
+            $.get('waste_log/get_store_info/' + store_rollout + '?days='+filter_type+'&locale='+"<%=params[:locale]%>", function(data){
+                $("#log_grid").html(data);
+            });
+          });
+
+  function select_filter(ele, days) {
+      $('.filter_type a.selected').removeClass('selected');
+      $(ele).addClass('selected');
+      var store_value = $('#store_id :selected').val().split('__');
+      var state = store_value[0];;
+      var days = $('.filter_type a.selected').children().val();
+      if(state == "") state="0";
+      $.get('waste_log/get_store_info/' + state + '?days='+days+'&locale='+"<%=params[:locale]%>", function(data){
+          $("#log_grid").html(data);
+      })
+  };
+
+
+
+</script>
+<script type="text/javascript">
+    $('select').select2();
+</script>

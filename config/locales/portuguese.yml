@@ -1,0 +1,102 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+portuguese:
+  language:
+      english: 'Inglês'
+      arabic: 'árabe'
+      chinese: 'chinês'
+      dutch: 'holandês'
+      french: 'francês'
+      german: 'alemão'
+      hindi: 'hindi'
+      italian: 'italiano'
+      portuguese: 'Português'
+      romanian: 'romena'
+      russian: 'russo'
+      spanish: 'espanhol'
+      swedish:  'sueco'
+      turkish: 'turco6'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'insira o peso'
+      store_titile: 'Loja'
+      log_waste: 'Desperdício registro'
+      weight_placeholder: 'insira o peso'
+      date: 'Encontro'
+      submitted_by: 'Enviado por'
+      material: 'Material'
+      weight: 'Peso'
+      action: 'Açao'
+      remove: 'Remover'
+      last7 : 'Últimos 7 dias'
+      last30 : 'Últimos 30 dias'
+      charttitle: 'Registro de resíduos'
+    types:
+      classicRecycling: 'Reciclagem clássica'
+      occCardboard: 'Cartão OCC'
+      organicWaste: 'Desperdício orgânico'
+      operationalWaste: 'Outros Resíduos Operacionais'
+      divertedWaste: 'Desperdício Desviado'
+  drop_list:
+    wastetype:
+      head: 'Tipos de Resíduos'
+      sidehead_a: 'Cartão'
+      des_1: 'Reciclagem e transporte de resíduos usam o termo OCC em referência ao cartão. O cartão ondulado pode ser facilmente reconhecido pela sua estrutura de múltiplas camadas; A camada média estriada ou ondulada entre as folhas de papel mantém a luz da placa corrugada e dá-lhe a força para transportar produtos.'
+      sidehead_b: 'Reciclagem clássica'
+      des_3: 'Inclui todos os resíduos de recipientes de reciclagem azul. Os materiais incluem garrafas, latas, papel, cartão (não capturado em reciclagem de cartão separada)'
+      sidehead_c: 'Desperdício orgânico'
+      des_4: 'Inclui resíduos do (s) recipiente (s) de reciclagem verde. Inclui resíduos de alimentos, recipientes de alimentos compostáveis, guardanapos e toalhas de papel e papelão sujo (por exemplo, caixas de pizza)'
+      sidehead_d: 'Outros Resíduos Operacionais'
+      des_5: 'Inclui resíduos dos recipientes de reciclagem cinza. É todo o desperdício que não é incluído nas outras bandejas.'
+  drop_list_b:    
+    feedback:
+      head: 'Comentários'
+      body: 'Como você classificaria sua experiência?'
+      text: 'Comentários adicionais'
+      submit: 'ENVIAR'
+  drop_list_c:
+    settings:
+      head: 'Configurações da conta'
+      heading_a: 'Loja padrão'
+      heading_b: 'Medida de peso padrão'
+      save: 'SALVE '
+  drop_list_d:
+    logout: 
+      head: 'Sair?'
+      body: 'Você perderá todas as entradas não salvas'
+      confirm: 'CONFIRME'
+  drop_content:
+      wastetype: 'Tipos de Resíduos'
+      feedback: 'Comentários'
+      settings: 'configurações'
+      logout: 'Sair'
+      language: 'língua'
+  
+
+
+
+
+
+

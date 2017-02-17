@@ -1,0 +1,139 @@
+// Colors
+// -------
+
+$gray-base: #000 !default;
+$gray-dark: #1a1d1a !default;
+$gray: #4d4f53 !default;
+$gray-light: #a4a4a4 !default;
+
+$brand-default: $gray-dark !default;
+$brand-primary: #00a599 !default;
+$brand-success: $brand-primary !default;
+$brand-info: #095bb5 !default;
+$brand-warning: #f37f00 !default;
+$brand-danger: #d42727 !default;
+
+// Scaffolding
+// ------------
+
+$body-bg: #f6f6f6 !default;
+$text-color: $gray-dark !default;
+
+$link-color: $brand-primary !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: none !default;
+
+// Typography
+// -----------
+
+$font-family-sans-serif: "Ars Maquette", "Helvetica Neue", Helvetica, sans-serif !default;
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 14px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+
+$font-size-h1: floor(($font-size-base * 2.3)) !default; // ~32px
+$font-size-h2: floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3: ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$line-height-base: 1.428571429 !default; // 20/14
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+$headings-font-family: inherit !default;
+$headings-font-weight: $font-weight-bold !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+$headings-small-color: $gray-light !default;
+
+$hr-border: $gray-light !default;
+
+// Header
+// -------
+
+$header-gradient-from-bg: #00a599 !default;
+$header-gradient-to-bg:   #11db5b !default;
+$header-action-color:     #fff !default;
+
+// Label
+// ------
+
+$label-color: $text-color;
+
+// Input
+// ------
+
+$input-height: 40px !default;
+$input-height-large: 68px !default;
+$input-padding: 8px 14px 8px !default;
+$input-padding-large: 8px 14px 8px !default;
+$input-bg: #fff !default;
+$input-bg-disabled: #f2f2f2 !default;
+$input-border: $gray !default;
+$input-border-focus: $brand-primary !default;
+$input-font-size-large: 42px !default;
+$input-font-weight: $font-weight-light;
+$input-color: $text-color !default;
+$input-placeholder-color: #8c8e8c !default;
+
+// Table
+// ------
+
+$table-bg: #fff !default;
+$table-bg-highlighted: #f9f5d7 !default;
+$table-bg-accent: #f7f7f7 !default;
+$table-head-bg: #e7e7e7 !default;
+$table-cell-padding: 8px 12px !default;
+$table-border-color: #eaeaea !default;
+
+// Panel
+// ------
+
+$panel-bg: #fff !default;
+$panel-border: rgba($gray-base, 0.05) !default;
+$panel-column-section-bg-highlight: rgba(#838383, 0.07);
+$panel-column-section-title-color: #303330 !default;
+
+// Waste editor
+// -------------
+
+$waste-type-bg: #fff !default;
+$waste-type-bg-hover: $brand-primary !default;
+$waste-type-bg-active: $brand-primary !default;
+$waste-type-border: #b5b5b5 !default;
+$waste-type-border-hover: $brand-primary !default;
+$waste-type-border-active: $brand-primary !default;
+$waste-type-color: #3b3d3b !default;
+$waste-type-color-hover: #fff !default;
+$waste-type-color-active: #fff !default;
+
+// Z-indexes
+// ----------
+
+$z-index-datepicker: 1000 !default;
+$z-index-header: 1100 !default;
+$z-index-page-loading: 1200 !default;
+$z-index-modal: 1300 !default;
+
+
+%button {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+//  @include user-select(none);
+}

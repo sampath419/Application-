@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+dutch:
+  language:
+        english: 'Engels'
+        arabic: 'Arabisch'
+        chinese: 'Chinese'
+        dutch: 'Nederlands'
+        french: 'Frans'
+        german: 'Duits'
+        hindi: 'Hindi'
+        italian: 'Italiaans'
+        portuguese: 'Portugees'
+        romanian: 'Roemeense'
+        russian: 'Russisch'
+        spanish: 'Spaans'
+        swedish:  'Zweeds'
+        turkish: 'Turks'
+  measurement_type:
+        kgs: 'Kgs'
+        lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Voer uw gewicht in'
+      store_titile: 'Op te slaan'
+      log_waste: 'afval log'
+      weight_placeholder: 'Voer uw gewicht in'
+      date: 'Datum'
+      submitted_by: 'Toegevoegd door'
+      material: 'Materiaal'
+      weight: 'Gewicht'
+      action: 'Actie'
+      remove: 'Verwijderen'
+      last7 : 'Laatste 7 dagen'
+      last30 : 'Laatste 30 dagen'
+      charttitle: 'afval log'
+    types:
+      classicRecycling: 'Classic Recycling'
+      occCardboard: 'OCC Cardboard'
+      organicWaste: 'Organisch afval'
+      operationalWaste: 'Andere operationele Waste'
+      divertedWaste: 'omgeleid Waste'
+  drop_list:
+    wastetype:
+      head: 'Soorten afval'
+      sidehead_a: 'Karton'
+      des_1: 'Recycling en afval vervoerders gebruiken de term OCC in verwijzing naar karton. Golfkarton kan gemakkelijk door zijn meerdere lagen structuur worden erkend; de gegroefde of golvend middelste laag tussen de bladen van papier blijft golfkarton licht en geeft het de kracht om producten te dragen.'
+      sidehead_b: 'Classic Recycling'
+      des_3: 'Omvat alle afval van blauwe recycling containers. Materialen zijn onder meer flessen, blikjes, papier, karton (niet meegenomen in aparte kartonnen recycling)'
+      sidehead_c: 'Organisch afval'
+      des_4: 'nclusief afval van de groene recycling container (s). Inclusief voedselverspilling, composteerbare verpakkingen voor levensmiddelen, servetten en papieren handdoeken, en vuile karton (bijv pizzadozen)'
+      sidehead_d: 'Andere operationele Waste'
+      des_5: 'Inclusief afval uit de grijze afvalcontainers. Het is al het afval dat niet is opgenomen in de andere bakken.'
+  drop_list_b:    
+    feedback:
+      head: 'terugkoppeling'
+      body: 'Hoe zou u uw ervaringen waardeert?'
+      text: 'Aanvullende opmerkingen'
+      submit: 'LEGT'
+  drop_list_c:
+    settings:
+      head: 'Account instellingen'
+      heading_a: 'Default Store'
+      heading_b: 'Standaard Gewicht Maatregel'
+      save: 'besparen'
+  drop_list_d:
+    logout: 
+      head: 'Uitloggen?'
+      body: 'U zult niet opgeslagen data te verliezen'
+      confirm: 'BEVESTIGEN'
+  drop_content:
+      wastetype: 'afvalsoorten'
+      feedback: 'terugkoppeling'
+      settings: 'instellingen'
+      logout: 'uitloggen'
+      language: 'taal'
+
+
+
+
+

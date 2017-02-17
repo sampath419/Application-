@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+spanish:
+  language:
+      english: 'Inglés'
+      arabic: 'Arábica'
+      chinese: 'chino'
+      dutch: 'holandés'
+      french: 'francés'
+      german: 'alemán'
+      hindi: 'hindi'
+      italian: 'italiano'
+      portuguese: 'portugués'
+      romanian: 'rumano'
+      russian: 'ruso'
+      spanish: 'Español'
+      swedish: 'sueco'
+      turkish: 'turco'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Introduzca el peso'
+      store_titile: 'Almacenar'
+      log_waste: 'Desperdic registro'
+      weight_placeholder: 'Introduzca el peso'
+      date: 'Fecha'
+      submitted_by: 'Presentado por'
+      material: 'Material'
+      weight: 'Peso'
+      action: 'Acción'
+      remove: 'retirar'
+      last7 : 'Los últimos 7 días'
+      last30 : 'Últimos 30 días'
+      charttitle: 'Registro de residuos'
+    types:
+      classicRecycling: 'Reciclaje Clásico'
+      occCardboard: 'Cartón OCC'
+      organicWaste: 'Residuo orgánico'
+      operationalWaste: 'Otros Residuos Operacionales'
+      divertedWaste: 'Desechos desviados'
+  drop_list:
+    wastetype:
+      head: 'Tipos de residuos'
+      sidehead_a: 'Cartulina'
+      des_1: 'Residuos y reciclado de los transportistas utilizan el término OCC en referencia al cartón. El cartón ondulado se puede reconocer fácilmente por su estructura de múltiples capas; la capa media acanalada u ondulada entre dos hojas de papel impide que la luz de cartón ondulado y le da la fuerza para llevar los productos.'
+      sidehead_b: 'Reciclaje clásico'
+      des_3: 'Incluye todos los residuos de los contenedores azules de reciclaje. Los materiales incluyen botellas, latas, papel, cartón (no capturados en el reciclaje de cartón por separado)'
+      sidehead_c: 'Residuo orgánico'
+      des_4: 'Incluye los residuos del contenedor de reciclaje verde (s). Incluye los residuos de alimentos, envases de alimentos compostables, servilletas y toallas de papel y cartón sucio (por ejemplo, cajas de pizza)'
+      sidehead_d: 'Otro de los desechos,'
+      des_5: 'Incluye los residuos de los contenedores de reciclaje de color gris. Es todos los residuos que no se incluye en los otros contenedores.'
+  drop_list_b:    
+    feedback:
+      head: 'Realimentación'
+      body: '¿Cómo calificaría su experiencia?'
+      text: 'Comentarios adicionales'
+      submit: 'ENVIAR'
+  drop_list_c:
+    settings:
+      head: 'Configuraciones de la cuenta'
+      heading_a: 'Tienda predeterminada'
+      heading_b: 'Medida de peso predeterminada'
+      save: 'SALVAR'
+  drop_list_d:
+    logout: 
+      head: '¿Cerrar sesión?'
+      body: 'Usted perderá todas las entradas no guardadas'
+      confirm: 'CONFIRMAR'
+  drop_content:
+      wastetype: 'Tipos de residuos'
+      feedback: 'realimentación'
+      settings: 'Ajustes'
+      logout: 'cerrar sesión'
+      language: 'idioma'
+
+
+
+
+

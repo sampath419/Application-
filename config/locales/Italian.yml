@@ -1,0 +1,99 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+italian:
+  language:
+      english: 'Inglese'
+      arabic: 'Arabo'
+      chinese: 'Cinese'
+      dutch: 'olandese'
+      french: 'francese'
+      german: 'Tedesco'
+      hindi: 'hindi'
+      italian: 'italiano'
+      portuguese: 'portoghese'
+      romanian: 'rumeno'
+      russian: 'russo'
+      spanish: 'spagnolo'
+      swedish:  'svedese'
+      turkish: 'Turco'
+  measurement_type:
+      kgs: 'Kgs'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Inserisci Peso'
+      store_titile: 'Negozio'
+      log_waste: 'log rifiuti'
+      weight_placeholder: 'Inserisci Peso'
+      date: 'Data'
+      submitted_by: 'Inviato da'
+      material: 'Materiale'
+      weight: 'Peso'
+      action: 'Azione'
+      remove: 'Rimuovere'
+      last7 : 'Ultimi 7 giorni'
+      last30 : 'Ultimi 30 giorni'
+      charttitle: 'registro dei rifiuti'
+    types:
+      classicRecycling: 'Riciclaggio Classic'
+      occCardboard: 'OCC cartone'
+      organicWaste: 'Rifiuto organico'
+      operationalWaste: 'Altri rifiuti operativa'
+      divertedWaste: 'rifiuti Diverted'
+  drop_list:
+    wastetype:
+      head: 'tipi di rifiuti'
+      sidehead_a: 'Cartone'
+      des_1: 'Riciclaggio e rifiuti autotrasportatori usano il termine OCC in riferimento al cartone. Il cartone ondulato è facilmente riconoscibile dalla sua struttura a strati multipli; lo strato centrale scanalata o ondulato tra fogli di carta continua luce cartone ondulato e le dà la forza di portare prodotti.'
+      sidehead_b: 'Riciclaggio Classic'
+      des_3: 'Include tutti i rifiuti da contenitori per il riciclaggio blu. I materiali includono bottiglie, lattine, carta, cartone (non catturati nel riciclaggio di cartone separata)'
+      sidehead_c: 'Rifiuto organico'
+      des_4: 'Include i rifiuti dal contenitore di riciclaggio verde (s). Include i rifiuti alimentari, contenitori per alimenti compostabili, tovaglioli e fazzoletti di carta, cartone e sporco (ad esempio scatole per pizza)'
+      sidehead_d: 'Altri rifiuti operativa'
+      des_5: 'Comprende i rifiuti dai contenitori per il riciclaggio di grigio. Si tratta di tutti i rifiuti che non è incluso negli altri contenitori.'
+  drop_list_b:    
+    feedback:
+      head: 'Risposta'
+      body: 'Come giudichi la tua esperienza?'
+      text: 'Commenti aggiuntivi'
+      submit: 'SOTTOSCRIVI'
+  drop_list_c:
+    settings:
+      head: 'Impostazioni dell account'
+      heading_a: 'archivio predefinito'
+      heading_b: 'Predefinito misurare il peso'
+      save: 'SALVARE'
+  drop_list_d:
+    logout: 
+      head: 'Logout?'
+      body: 'Si perderà tutte le voci salvate'
+      confirm: 'CONFERMA'
+  drop_content:
+      wastetype: 'tipi di rifiuti'
+      feedback: 'Risposta'
+      settings: 'Impostazioni dell account'
+      logout: 'Logout?'
+      language: 'Lingua'
+  
+
+
+

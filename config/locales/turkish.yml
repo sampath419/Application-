@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+turkish:
+  language:
+        english: 'ingilizce'
+        arabic: 'Arapça'
+        chinese: 'Çince'
+        dutch: 'Flemenkçe'
+        french: 'Fransızca'
+        german: 'Almanca'
+        hindi: 'Hintçe'
+        italian: 'İtalyan'
+        portuguese: 'Portekizce'
+        romanian: 'Romence'
+        russian: 'Rusça'
+        spanish: 'İspanyol'
+        swedish:  'İsveççe'
+        turkish: 'Türk'
+  measurement_type:
+        kgs: 'Kgs'
+        lbs: 'Pound'
+  waste_log:
+    index:
+      title: 'Ağırlığı Gir'
+      store_titile: 'Mağaza'
+      log_waste: 'Günlük Atık'
+      weight_placeholder: 'Ağırlığı Gir'
+      date: 'Tarih'
+      submitted_by: 'Tarafından gönderilmiştir'
+      material: 'Malzeme'
+      weight: 'Ağırlık'
+      action: 'Aksiyon'
+      remove: 'Kaldır'
+      last7 : 'Son 7 gün'
+      last30 : 'Son 30 gün'
+      charttitle: 'Atık günlük'
+    types:
+      classicRecycling: 'Klasik Geri Dönüşüm'
+      occCardboard: 'OCC Karton'
+      organicWaste: 'Organik atık'
+      operationalWaste: 'Diğer İşletme Atıkları'
+      divertedWaste: 'Yönlendirilen Atık'
+  drop_list:
+    wastetype:
+      head: 'Atık Çeşitleri'
+      sidehead_a: 'Karton'
+      des_1: 'Geri dönüşüm ve atık taşıyıcılar, karton ile ilgili olarak OCC terimini kullanmaktadır. Oluklu mukavva çok katmanlı yapısı ile kolaylıkla fark edilebilir; Kâğıt tabakaları arasındaki oluklu veya dalgalı orta tabaka oluklu mukavva levhasını hafif tutar ve ona ürün taşıma gücü verir.'
+      sidehead_b: 'Klasik Geri Dönüşüm'
+      des_3: 'Mavi geri dönüşüm kaplarından gelen tüm atıkları içerir. Malzemeler; şişe, teneke kutu, kağıt, karton (ayrı mukavva geri dönüşümünde ele alınmaz)'
+      sidehead_c: 'Organik atık'
+      des_4: 'Yeşil geri dönüşüm kablarından atıklar içerir. Gıda atıkları, kompostlaştırılabilir gıda kapları, peçeteler ve kağıt havluları ve kirli kartonları (örn. Pizza kutuları)'
+      sidehead_d: 'Diğer İşletme Atıkları'
+      des_5: 'Gri geri dönüşüm kutularından kaynaklanan atıkları içerir. Diğer çöp kutularına dahil olmayan hepsi de boşa çıktı.'
+  drop_list_b:    
+    feedback:
+      head: 'geri bildirim'
+      body: 'Deneyiminizi nasýl derecelendirirsiniz?'
+      text: 'Ek Yorumlar'
+      submit: 'Gönder'
+  drop_list_c:
+    settings:
+      head: 'Hesap ayarları'
+      heading_a: 'Varsayılan Mağaza'
+      heading_b: 'Varsayılan Ağırlık Ölçüsü'
+      save: 'kayıt etmek'
+  drop_list_d:
+    logout: 
+      head: 'Çıkış Yap?'
+      body: 'Kaydedilmemiş kayıtları kaybedeceksiniz'
+      confirm: 'onaylamak'
+  drop_content:
+      wastetype: 'Atık türü'
+      feedback: 'geri bildirim'
+      settings: 'Ayarlar'
+      logout: 'çıkış Yap'
+      language: 'dil'
+
+
+
+
+

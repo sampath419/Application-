@@ -1,0 +1,676 @@
+// Place all the styles related to the waste-log controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap';
+@import 'variables';
+
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+body{
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  font-family: 'San Francisco';
+  font-weight: 400;
+
+}
+.header{
+  height: 53px;
+  background: linear-gradient(165.2deg, #007AFF 0%, #4CD964 100%);
+}
+.header_logo{
+  width: 25.31px;
+  height: 30px;
+}
+
+.panel-title {
+  text-align: center;
+  font-size: 27px;
+  padding-top: 59px;
+  padding-bottom: 10px;
+  font-family: 'San Francisco';
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 53px;
+  color: #1A1D1A;
+}
+
+.store_title{
+  height: 38px;
+  font-family: "SF UI Text";
+  font-size: 18px;
+  line-height: 38px;
+  color: #1A1D1A;
+}
+
+#store_id{
+  height: 36px;
+  background: linear-gradient(180deg, #F2F2F2 0%, #D4D4D4 100%);
+  box-shadow: inset 0 2px 0 0 #FFFFFF, 0 1px 2px 0 rgba(0,0,0,0.2);
+  border: 1px solid #979797;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #4A4A4A;
+}
+
+.date_title{
+  width: 200px;
+  height: 38px;
+  font-size: 18px;
+  line-height: 38px;
+  color: #1A1D1A;
+  margin-top: 18px;
+}
+
+#log_date{
+  width: 300px;
+  height: 36px;
+  background: linear-gradient(180deg, #F2F2F2 0%, #D4D4D4 100%);
+  box-shadow: inset 0 2px 0 0 #FFFFFF, 0 1px 2px 0 rgba(0,0,0,0.2);
+  border: 1px solid #979797;
+  border-radius: 3px;
+  padding-left: 11px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #4A4A4A;
+}
+
+#waste_type_title{
+  width: 145px;
+  height: 38px;
+  font-size: 18px;
+  line-height: 38px;
+  color: #1A1D1A;
+}
+
+#quantity{
+  width: 300px;
+  height: 36px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.5);
+  border: 1px solid #979797;
+  border-radius: 3px;
+  padding-left: 11px;
+  font-size: 14px;
+  line-height: 19px;
+}
+.measurement_type a.selected{
+  width: 59px;
+  height: 26px;
+  background-color: #007AFF;
+  border-radius: 7px;
+}
+
+
+// Waste log
+// ----------
+
+.wasteEditor {
+   text-align: center;
+   font-family: "SF UI Display";
+   font-size: 14px;
+   font-weight: 300;
+  // Children
+  // ---------
+
+  &-wasteTypes {
+    margin-bottom: 60px;
+    text-align: center;
+
+    // Children
+    // ---------
+
+    .formGroup-help {
+      margin-top: 10px;
+    }
+  }
+
+  &-wasteType {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 142px;
+    margin-right: 15px;
+    padding-top: 145px;
+    background: transparent no-repeat center 85%;
+    color: #1A1D1A !important;
+    //border: 1px solid $waste-type-border;
+    @extend %button;
+
+    // States
+    // -------
+
+    &.is-active {
+      //background-color: #00a599;
+      //border-color: #00a599;
+      //color: #fff;
+    }
+
+    // Modifiers
+    // ----------
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--classicRecycling {
+      background-image: url("/assets/classic-recycling.png");
+
+      // States
+      // -------
+
+      &.is-active {
+        background-image: url("/assets/classic-recycling-active.png");
+      }
+    }
+
+    &--occCardboard {
+      background-image: url("/assets/occ-cardboard.png");
+
+      // States
+      // -------
+
+      &.is-active {
+        background-image: url("/assets/occ-cardboard-active.png");
+      }
+    }
+
+    &--organicWaste {
+      background-image: url("/assets/organic-waste.png");
+
+      // States
+      // -------
+
+      &.is-active {
+        background-image: url("/assets/organic-waste-active.png");
+      }
+    }
+
+    &--operationalWaste {
+      background-image: url("/assets/operational-waste.png");
+
+      // States
+      // -------
+
+      &.is-active {
+        background-image: url("/assets/operational-waste-active.png");
+      }
+    }
+  }
+
+
+  .formGroup:not(.wasteEditor-wasteTypes) {
+    width: 260px;
+    margin: 0 auto 4px;
+    text-align: center;
+    font-family: "SF UI Display";
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.wasteEditor-wasteType a{
+  text-decoration: none !important;
+}
+
+.form-group-wastelog{
+  //margin-left: 35%;
+  font-family: "SF UI Display";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+  width: 185px;
+  height: 36px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+  background-color: transparent;
+  text-align: left;
+
+}
+
+.dropbtn_language {
+  width: 210px;
+  height: 36px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+  background-color: transparent;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.dropbtn_user_name {
+  width: 154px;
+}
+
+.dropbtn_span {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  display: block;
+  margin-left: 76%;
+  margin-top: -7%;
+  padding-bottom: -13%;
+  position: absolute;
+}
+
+.dropbtn_user_image{
+  background-image: url('/assets/user.png');display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+  margin-right: 7px;;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  float: right;
+}
+.dropdown-language,.dropdown-user{
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+ /* display: block;*/
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+
+#pie_chart_log{
+  background-color: transparent;
+  text-align: center;
+  margin-top: 5px;
+  min-height: 307px;
+  position: relative;
+}
+.pie_chart_title{
+  display: block;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 2%;
+  text-align: center;
+  margin-bottom: -20px;
+  }
+
+/* Style The Dropdown Button */
+.dropbtn {
+  width: 200px;
+  height: 36px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+  background-color: transparent;
+  text-align: left;
+  margin-left: 4%;
+
+}
+.dropbtn_user_name {
+  width: 91px;
+  height: 16px;
+  font-family: "SF UI Text";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+
+.dropbtn_span {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  display: block;
+  margin-left: 76%;
+  margin-top: -7%;
+  padding-bottom: -13%;
+  position: absolute;
+}
+
+.dropbtn_user_image{
+  background-image: url('/assets/user.png');display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+  margin-right: 7px;;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+
+
+@mixin th_up_arrow_after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  display: block;
+  top: 47%;
+  opacity: 1;
+}
+
+@mixin th_down_arrow_after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ffffff;
+  display: block;
+  top: 47%;
+}
+
+#log_grid {
+  .table_border {
+    border-right: 1px solid #C8C7CC;
+    border-left: 1px solid #C8C7CC;
+    border-bottom: 1px solid #C8C7CC;
+    border-collapse: collapse !important;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .table_border tr {
+    border: none;
+  }
+  .table_tr {
+    background-color: #8A8A8F;
+    .table_tr_date {
+      &.sorting_desc:after {
+        //@include th_down_arrow_after;
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+      &.sorting_asc:after,&.sorting:after {
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+    } 
+    .table_tr_submit {
+      &.sorting_desc:after {
+        //@include th_down_arrow_after;
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+      &.sorting_asc:after,&.sorting:after {
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+    }
+    .table_tr_material {
+      &.sorting_desc:after {
+        //@include th_down_arrow_after;
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+      &.sorting_asc:after,&.sorting:after {
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+    }
+
+    .table_tr_weight {
+      &.sorting_desc:after {
+        //@include th_down_arrow_after;
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+      &.sorting_asc:after,&.sorting:after {
+        @include th_up_arrow_after;
+        right: 10%;
+      }
+    }
+
+  }
+
+  .table_tr th {
+    color: #FFFFFF;
+  }
+
+  //.sorting_desc:after {
+  //  @include th_up_arrow_after;
+  //  right: 22%;
+  //}
+  //
+  //.sorting_asc:after,.sorting:after {
+  //  @include th_down_arrow_after;
+  //  right: 22%;
+  //}
+}
+.measurement_type a{
+  color: #1A1D1A;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.measurement_type a.selected {
+  color:white;
+  background-color: #007AFF;;
+  border-radius: 7px;
+}
+.log_submit_button{
+  width: 158px;
+  height: 36px;
+  background: linear-gradient(180deg, #007AFF 0%, #FFFFFF 100%);
+  box-shadow: inset 0 2px 0 0 #FFFFFF, 0 1px 2px 0 #FFFFFF;
+  border: 1px solid #007AFF;
+  border-radius: 6px;
+  font-family: "Avenir Next";
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 19px;
+  color: #FFFFFF;
+  &.not_active{
+    pointer-events: none;
+    background: linear-gradient(180deg, #F2F2F2 0%, #D4D4D4 100%);
+    box-shadow: inset 0 2px 0 0 #FFFFFF, 0 1px 2px 0 #FFFFFF;
+    border: none !important;
+    color: #000000;
+  }
+
+}
+
+.wastetypepop{
+  background-color: #EFEFF4;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+  width:113%;
+}
+
+.wastetypepop_head{
+  text-align: center;
+  color: #1A1D1A;
+  font-family: "SF UI Display";
+  font-size: 44px;
+  font-weight: 300;
+}
+
+.wastetypepop_sidehead{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #1A1D1A;
+  margin-left: 1%;
+}
+
+.wastetypepop_des{
+width: 655px;
+height: 50px;
+font-size: 16px;
+line-height: 19px;
+color: #000000;
+}
+
+
+.pagination{
+background-color: #007aff;
+  
+}
+
+.highcharts-background {
+  fill: none;
+}
+.highcharts-plot-border, .highcharts-plot-background {
+  fill: none;
+}
+
+.filter_type a{
+  color: #1A1D1A;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.filter_type a.selected {
+  color:white;
+  background-color: #007AFF;;
+  border-radius: 7px;
+  width: 128px;
+  height: 38px;
+}
+
+
+.feedback__scoreRating{
+  padding:2px 0;
+  margin-bottom:10px;
+  margin-left: 37%;
+}
+.feedback__scoreRating a{
+  background:none;
+  padding:0;
+  display:block;
+  width:25px;
+  height:25px;
+  float:left;
+  margin-right:3px;
+  margin-bottom:5px;
+  text-indent:-9999999px;
+  overflow:hidden;
+  background-image: url("/assets/star.png");
+  background-repeat:no-repeat;
+  }
+.feedback__scoreRating a.ratted{
+  background-image: url("/assets/star_active.png");
+  background-repeat:no-repeat;
+}
+
+.review__form__successMsg,.review__form__errorMsg{
+  display: none;
+}
+.settings_heading {
+  //text-align: center;
+  font-weight: 500;
+  line-height: 2.1;
+}
+.settings_child {
+ // text-align: center;
+  line-height: 3;
+  font-weight: 400;
+}
+
+.submit_button{
+  width: 145px;
+  height: 36px;
+  background: linear-gradient(180deg, #007AFF 0%, #FFFFFF 100%);
+  box-shadow: inset 0 px 0 0 #FFFFFF, 0 1px px 0 #FFFFFF;
+  border: 1px solid #007AFF;
+  border-radius: 6px;
+  font-family: "Avenir Next";
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+  color: #FFFFFF;
+ // margin-left: 39%;
+}
+
+.logout_body{
+font-family: "SF UI Text";
+font-size: 18px;
+text-align: center;
+line-height: 38px;
+color: #1A1D1A;
+}
+
+.logout_button{
+width: 145px;
+height: 36px;
+background: linear-gradient(180deg, #007AFF 0%, #FFFFFF 100%);
+box-shadow: inset 0 2px 0 0 #FFFFFF, 0 1px 2px 0 #FFFFFF;
+border: 1px solid #007AFF;
+border-radius: 6px;
+font-family: "Avenir Next";
+font-size: 14px;
+font-weight: bold;
+text-align: center;
+line-height: 19px;
+color: #FFFFFF;
+}
+
+.dataTables_length{
+  display: none;
+}
+
+#log_table_wrapper{
+padding-top:25px;
+}

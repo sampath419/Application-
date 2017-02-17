@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dsid: 1
+  ratting: 1
+  content: MyText
+  store_id: MyString
+
+two:
+  dsid: 1
+  ratting: 1
+  content: MyText
+  store_id: MyString

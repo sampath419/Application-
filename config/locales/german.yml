@@ -1,0 +1,96 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+german:
+  language:
+        english: 'Englisch'
+        arabic: 'Arabisch'
+        chinese: 'Chinesisch'
+        dutch: 'Niederländer'
+        french: 'Französisch'
+        german: 'Deutsche'
+        hindi: 'Hindi'
+        italian: 'Italienisch'
+        portuguese: 'Portugiesisch'
+        romanian: 'rumänisch'
+        russian: 'Russisch'
+        spanish: 'Spanisch'
+        swedish:  'Schwedisch'
+        turkish: 'Türkisch'
+  measurement_type:
+        kgs: 'Kgs'
+        lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Gewicht eingeben'
+      store_titile: 'Geschäft'
+      log_waste: 'Abfälle'
+      weight_placeholder: 'Gewicht eingeben'
+      date: 'Datum'
+      submitted_by: 'Eingereicht von'
+      material: 'Material'
+      weight: 'Gewicht'
+      action: 'Aktion'
+      remove: 'Entfernen'
+      last7 : 'Letzte 7 Tage'
+      last30 : 'Letzte 30 Tage'
+      charttitle: 'Abfall-Log'
+    types:
+      classicRecycling: 'Klassisches Recycling'
+      occCardboard: 'OCC Karton'
+      organicWaste: 'Organischer Abfall'
+      operationalWaste: 'Andere Betriebsabfälle'
+      divertedWaste: 'Abgeleitete Abfälle'
+  drop_list:
+    wastetype:
+      head: 'Abfallarten'
+      sidehead_a: 'Karton'
+      des_1: 'Recycling-und Abfall-Schlepper verwenden den Begriff OCC in Bezug auf Karton. Wellpappe kann leicht durch ihre mehrschichtige Struktur erkannt werden; Die geriffelte oder gewellte mittlere Schicht zwischen den Papierbögen hält Wellpappe-Licht und gibt ihm die Stärke, Produkte zu tragen.'
+      sidehead_b: 'Klassisches Recycling'
+      des_3: 'Enthält alle Abfälle aus blauen Recyclingbehältern. Materialien umfassen Flaschen, Dosen, Papier, Karton (nicht in separater Pappe Recycling erfasst)'
+      sidehead_c: 'Organischer Abfall'
+      des_4: 'Enthält Abfälle aus dem / den grünen Recyclingbehälter (n). Enthält Lebensmittelabfälle, kompostierbare Lebensmittelbehälter, Servietten und Papiertücher sowie Schmutzkarton (zB Pizzakartons)'
+      sidehead_d: 'Sonstige betriebliche Abfälle'
+      des_5: 'Beinhaltet Abfälle aus den grauen Recyclingbehältern. Es ist alles Abfall, der nicht in den anderen Fächern enthalten ist.'
+  drop_list_b:    
+    feedback:
+      head: 'Feedback'
+      body: 'Wie bewerten Sie Ihre Erfahrungen?'
+      text: 'zusätzliche Kommentare'
+      submit: 'EINREICHEN'
+  drop_list_c:
+    settings:
+      head: 'Account Einstellungen'
+      heading_a: 'Default Store'
+      heading_b: 'Voreinstellung Gewichtsmessung'
+      save: 'SPAREN'
+  drop_list_d:
+    logout: 
+      head: 'Ausloggen?'
+      body: 'Sie verlieren alle nicht gespeicherten Einträge'
+      confirm: 'BESTÄTIGEN'
+  drop_content:
+      wastetype: 'Abfallarten'
+      feedback: 'Feedback'
+      settings: 'Einstellungen'
+      logout: 'Ausloggen'
+      language: 'Sprache'
+  

@@ -1,0 +1,281 @@
+= Rdaw
+
+The purpose of this plugin is to provide Rails apps with ApppleConnect/DSauthweb authentication features.
+
+== Radar
+
+Please send bugs to the official Radar component: Rdaw (version: All).
+
+  rdar://component/472068 Rdaw | All
+
+== Using the gem
+
+First, for both Rails 2 and 3:
+
+  $ gem sources -a http://gems.apple.com/
+  $ gem install rdaw
+
+Then, in Rails 2, add `config.gem "rdaw"` to environment.rb.
+
+Or, in Rails 3, add `gem "rdaw"` to Gemfile.
+
+== Security
+
+For maximum security, apps that use this plugin should be run under SSL/HTTPS.
+
+By default, Rdaw requires the SSL certificate of the DAW server to be verified. If, for some reason, you want to skip this step (not recommended unless you enjoy man-in-the-middle attacks), you can set Rdaw::SSL_VERIFY_MODE = OpenSSL::SSL::VERIFY_NONE.
+
+== Configuration
+
+=== Required Setup
+
+Configuration follows the standard Rails approach. The following can go in initializers or environment files.
+Rdaw configuration constants should always be defined within the Rdaw module.
+This is normally done by wrapping constant assignments with module Rdaw ... end.
+You can wrap all assignments in a single module Rdaw ... end block, or use multiple blocks.
+
+  module Rdaw
+    # something like this for testing:
+    DAW_URL_PREFIX = 'https://dsauthwebt.apple.com/cgi-bin/WebObjects/DSAuthWeb.woa/wa'
+
+    # ... or this for production:
+    DAW_URL_PREFIX = 'https://daw.apple.com/cgi-bin/WebObjects/DSAuthWeb.woa/wa'
+
+    # these are all values that you should have received when registering your app with IS&T
+    APP_ID = '...'
+    APP_ID_KEY = '...'
+    APP_ADMIN_PASSWORD = '...'
+  end
+
+=== Recommended Setup
+
+==== Rails Session Store
+
+Rdaw stores some of the data it gets back from the DAW servers in a session. Unfortunately, the default Rails session store causes a ActionController::Session::CookieStore::CookieOverflow exception to be raised when, for instance, someone in a large number of DS groups logs in. However, if you follow the common recommendation of avoiding the default Rails session store in favor of a DB or memcached store, the issue doesn't come up.
+
+To do this, make sure you have the following line uncommented in my config/initializers/session_store.rb:
+  ActionController::Base.session_store = :active_record_store
+
+After changing this setting, run `rake db:migrate` to create the tables for session storage.
+
+=== Optional Setup
+
+  module Rdaw
+    # Integral number of seconds before a session must be verified with DAW servers. Defaults to:
+    SESSION_TIMEOUT_SECONDS = 300
+
+
+    # Specifies which bits of user information are interesting. Defaults to:
+    DAW_FUNC = 'firstName;nickName;lastName;allGroups;prsId;employeeId;prsTypeCode;divisionNum;departmentNum;isManager;emailAddress;phoneOfficeCountryDialCode;phoneOfficeAreaCode;phoneOfficeNumber;phoneOfficeExtension;addressOfficialMailstopName;officialCountryCd;addressOfficialCity;addressOfficialLineFirst;addressOfficialLineSecond;addressOfficialPostalCode;addressOfficialStateProvince;phoneMobileAreaCode;phoneMobileCountryDialCode;phoneMobileExtension;phoneMobileNumber'
+
+
+    # Symbol or string specifying the name of the controller method to call when authorization fails.
+    # When the specified method is invoked, it will be supplied with an options hash
+    # that includes the numeric status code (as a string) and a status string (keys <tt>:status_code</tt> and <tt>:status_text</tt>).
+    # Example:
+    ERROR_HANDLER_MNAME = :error_handler
+
+    # Then, error_handler may inspect its parameters and perform
+    # logging or redirection or any other error handling.
+    # It can also invoke daw_login_prompt, which redirects the user to a page containing a login form.
+    # This is the default behavior, if no error handler is defined.
+    
+    # RECOVER_FLAG is a string that's added as a parameter to the URL when recovering from an interrupted POST, PUT, or DELETE request.
+    # These requests are interrupted when the authenticated session times out after loading the source page (usually a form),
+    # followed by the user attempting to submit the form or issue a non-GET request some other way. The request is then
+    # "interrupted" because the DAW server can only redirect GET requests, so POST, PUT, and DELETE requests lose their
+    # request method and become GETs to the same URL. Any post data submitted with the form is also lost.
+    #
+    # Rdaw handles these interruptions by redirecting the user back to the source page.
+    #
+    # It is up to your application to detect that this has happened and restore any form data so the user doesn't lose his submission.
+    #
+    # Defaults to:
+    RECOVER_FLAG = 'rdr=1'
+
+    # For apps with multiple return URLs registered with DAW, the rv GET parameter may be passed to the login page through the URL.
+    # The value of this parameter should be an integer that indicates which return URL to redirect to after successful login.
+    # Apps with only one return URL registered with DAW need not set this parameter.
+    APP_RV = 2
+    
+    # The default cookie name is myacinfo, but this can change, e.g. when using a test environment
+    DAW_COOKIE_NAME = 'myacinfo-at'
+  end
+
+=== Optional Local Mode
+
+If you'd like to run a development server (e.g. script/server) on localhost or some other domain outside of *.apple.com, you can do so by defining a hook method in the controller(s) where you want to bypass the normal authentication process.
+
+  class ApplicationController < ActionController::Base
+    # ...
+    
+    def rdaw_local_setup
+      return {
+        'firstName' => 't.',
+        'lastName' => 'rex',
+        'prsId' => '1154552672',
+        'allGroups' => '0;35339;43228;43246;56402;58366'
+        # ... whatever other key-values pairs that would normally come from the DAW endpoint
+      }
+    end
+    
+    # ...
+  end
+
+For controllers where this method is defined, the rdaw_auth before filter will use this mock DAW data hash instead of communicating with the DAW endpoint.
+
+Here is a sample hash with a lot more data. All keys are optional, just pick what you need to mock for your app's purposes.
+
+  {
+    "status"=>"0",
+    "firstName"=>"Vladimir",
+    "lastName"=>"Chernis",
+    "nickName"=>"Vladimir",
+    "emailAddress"=>"null",
+    "prsId"=>"1154552672",
+    "prsTypeCode"=>"3",
+    "phoneOfficeCountryDialCode"=>"null",
+    "phoneOfficeAreaCode"=>"null",
+    "phoneOfficeNumber"=>"null",
+    "phoneOfficeExtension"=>"null",
+    "addressOfficialMailstopName"=>"null",
+    "addressOfficialLineFirst"=>"1 Infinite Loop",
+    "addressOfficialLineSecond"=>"null",
+    "addressOfficialCity"=>"Cupertino",
+    "addressOfficialStateProvince"=>"CA",
+    "addressOfficialPostalCode"=>"95014",
+    "phoneMobileCountryDialCode"=>"null",
+    "phoneMobileAreaCode"=>"null",
+    "phoneMobileNumber"=>"null",
+    "phoneMobileExtension"=>"null",
+    "officialCountryCd"=>"USA",
+    "employeeId"=>"1013996",
+    "divisionNum"=>"0056",
+    "departmentNum"=>"0742",
+    "isManager"=>"N",
+    "allGroups"=>"0;35339;43228;43246;56402;58366;60667;230862;500471;1000004058;1000004896;1000042854;1000069125;"
+  }
+
+Warning: This is not meant to be used in production.
+
+=== Overriding Login Form URLs
+
+If all you need is to use a different prefix than DAW_URL_PREFIX for the login form, DAW_EXTERNAL_URL_PREFIX supersedes DAW_URL_PREFIX, but only for the login URL (not the validate URL). This functionality is useful for those who wish to use the external DAW servers for the user login page but the internal DAW servers for validating the DAW cookie.
+
+If you need more control over the URL of the login form than possible by simply changing the URL prefix, you can define a method in your controller(s) called rdaw_login_url that returns the full URL as needed.
+
+  class ApplicationController < ActionController::Base
+    # ...
+
+    def rdaw_login_url
+      return 'https://localhost/log_me_in'
+    end
+
+    # ...
+  end
+
+== Putting it to use
+
+1. Decide which controllers will use Rdaw. Then either `include Rdaw` in ApplicationController or just in the controllers that will require it. 
+2. For the controllers that will use Rdaw, decide which actions should require authentication, then add `before_filter :rdaw_auth`, along with any of the normal before_filter options that apply, such as `:only => ...` or `:except => ...` for action whitelists or blacklists, respectively.
+
+
+== Examples
+
+In this case, DAW authentication will be enabled for every controller (that inherits from ApplicationController) and every action:
+
+  class ApplicationController < ActionController::Base
+    # ...
+    
+    include Rdaw
+    before_filter :rdaw_auth
+
+    # ... 
+  end
+
+In this case, DAW authentication is enabled just for CommentsController (and its descendents), but only for actions other than do_ajax and about:
+
+  class CommentsController < ApplicationController
+    # ...
+
+    include Rdaw
+    before_filter(:rdaw_auth, :except => [:do_ajax, :about])
+
+    def index
+      # ...
+    end
+
+    def do_ajax
+      # ...
+    end
+
+    def about
+      # ...
+    end
+
+    # ...
+  end
+
+
+== Directory Services Groups
+
+The recommended way to check for group membership as a precondition of authorization is to add one or more of the following calls to a before filter applied to the desired actions.
+
+If you have a list of DS groups and the user needs to be in *any one* of the groups to be authorized, use:
+  in_any_group?([3, 4, 5])  # where 3, 4, and 5 are DS group IDs
+
+If you have a list of DS groups and the user needs to be in *each* of the groups to be authorized, use:
+  in_all_groups?([3, 4, 5]) # where 3, 4, and 5 are DS group IDs
+
+If you just want to check for one group, use:
+  in_group?(3)
+
+If you would like to apply a more complex predicate on the group IDs, you can get a list group IDs for the current user by calling `daw_group_ids` and doing your own processing on the list of integers returned.
+
+== Example
+
+In addition to DAW authentication, ensure that the user is in at least one of the DS groups with IDs 3, 4, and 5, but only for the index action.
+
+  # adding to the example from before
+  class CommentsController < ApplicationController
+    # ...
+
+    include Rdaw
+    before_filter(:rdaw_auth, :except => [:do_ajax, :about])
+
+    # <new>
+    before_filter(:check_groups, :only => [:index])
+
+    def index
+      # ...
+    end
+
+    def do_ajax
+      # ...
+    end
+
+    def about
+      # ...
+    end
+
+    # ...
+
+    private
+
+    # <new>
+    def check_groups
+      redirect_to(access_denied_path) unless in_any_group?([3, 4, 5])
+    end
+  end
+
+
+== Switching from dsauthweb
+
+It's difficult to give step by step directions for switching to rdaw from dsauthweb since there are so many forks of latter, but I've put together a general checklist.
+
+In addition to the normal installation instructions, dsauthweb users should:
+1. Remove dsauthweb from vendor/plugins
+2. Remove `verify_dsauthweb_identity` and `validate_dsauthweb_identity` from their controllers.
+3. Replace the `ActionController::Base.dsauthweb*` configuration options with those described above
+
+

@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+french:
+  language:
+        english: 'Engels'
+        arabic: 'Arabisch'
+        chinese: 'Chinese'
+        dutch: 'Nederlands'
+        french: 'Frans'
+        german: 'Duits'
+        hindi: 'Hindi'
+        italian: 'Italiaans'
+        portuguese: 'Portugees'
+        romanian: 'Roemeense'
+        russian: 'Russisch'
+        spanish: 'Spaans'
+        swedish:  'Zweeds'
+        turkish: 'Turks'
+  measurement_type:
+        kgs: 'Kgs'
+        lbs: 'Livres'
+  waste_log:
+    index:
+      title: 'Entrez Poids'
+      store_titile: 'le magasin'
+      log_waste: 'Déchets de grumes'
+      weight_placeholder: 'Entrez Poids'
+      date: 'rendez-vous amoureux'
+      submitted_by: 'Proposé par'
+      material: 'Matériel'
+      weight: 'Poids'
+      action: 'action'
+      remove: 'Retirer'
+      last7 : 'Les 7 derniers jours'
+      last30 : 'Les 30 derniers jours'
+      charttitle: 'Registre des déchets'
+    types:
+      classicRecycling: 'recyclage classique'
+      occCardboard: 'OCC carton'
+      organicWaste: 'déchets organiques'
+      operationalWaste: 'Autres activités déchets'
+      divertedWaste: 'Déchets renvoyés'
+  drop_list:
+    wastetype:
+      head: 'Type de déchets'
+      sidehead_a: 'Papier carton'
+      des_1: 'Recyclage et déchets transporteurs utilisent l OCC terme en référence au carton. Le carton ondulé peut être facilement reconnu par sa structure à couches multiples; la couche intermédiaire cannelée ou ondulée entre des feuilles de papier ne cesse de lumière bord ondulé et lui donne la force de transporter des produits.'
+      sidehead_b: 'recyclage classique'
+      des_3: 'Comprend tous les déchets provenant de contenants de recyclage bleus. Le matériel comprend des bouteilles, des canettes, papier, carton (pas capturées dans le recyclage de carton séparé)'
+      sidehead_c: 'Déchets organiques'
+      des_4: 'Comprend les déchets du conteneur de recyclage vert (s). Comprend les déchets alimentaires, les récipients alimentaires compostables, des serviettes et des serviettes en papier et en carton sale (par exemple des boîtes à pizza)'
+      sidehead_d: 'Autres déchets d exploitation'
+      des_5: 'Comprend les déchets des conteneurs gris de recyclage. Il est tous les déchets qui ne sont pas inclus dans les autres bacs.'
+  drop_list_b:    
+    feedback:
+      head: 'Retour d information'
+      body: 'comment noteriez-vous votre expérience?'
+      text: 'Commentaires supplémentaires'
+      submit: 'soumettre'
+  drop_list_c:
+    settings:
+      head: 'Paramètres du compte'
+      heading_a: 'Magasin par défaut'
+      heading_b: 'Par défaut Poids Mesure'
+      save: 'enregistrer'
+  drop_list_d:
+    logout: 
+      head: 'Connectez - Out?'
+      body: 'Vous perdrez toutes les entrées non enregistrées'
+      confirm: 'confirmer'
+  drop_content:
+      wastetype: 'Type de déchets'
+      feedback: 'Retour d information'
+      settings: 'paramètres'
+      logout: 'Connectez - Out'
+      language: 'la langue'
+
+
+
+
+

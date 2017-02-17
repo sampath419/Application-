@@ -1,0 +1,172 @@
+<div id="log_grid">
+
+    <div tabindex="-1" class="row">
+      <div tabindex="-1" class="col-xs-4 col-sm-2 col-md-2"></div>
+      <div tabindex="-1" class="col-lg-8 col-md-8 col-sm-8">
+        <p tabindex="-1" class="pie_chart_title"> <%= t('waste_log.index.charttitle') %></p>
+        <div tabindex="-1" id="pie_chart_log" ></div>
+      </div>
+      <div tabindex="-1" class="col-xs-4 col-sm-2 col-md-2"></div>
+    </div>
+<%logs_locale = 'waste_log.index'%>
+    <br>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="text-align: center;">
+     <span class="filter_type">
+       <% filter_day = filter_day || '7' %>
+       <a accesskey="M" tabindex="30" href="javascript:void(0);" onclick="select_filter(this,7)" class="<%= filter_day == '7' ? 'selected' : '' %>">
+         <%= t('waste_log.index.last7') %>
+        <input type="hidden"  tabindex="-1" value= 7 />
+       </a>
+       <a accesskey="N" tabindex="31" href="javascript:void(0);" onclick="select_filter(this,30)" class="<%= filter_day == '30' ? 'selected' : ''%>">
+         <%= t('waste_log.index.last30') %>
+         <input type="hidden" tabindex="-1" value= 30 />
+       </a>      </span>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <%if logs.size > 0%>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div>
+
+          <table tabindex="-1" id="log_table" class="table table-striped dataTable no-footer table_border display table table-striped table-hover">
+            <thead>
+            <tr class="table_tr">
+              <th class="table_tr_date" tabindex="32"><%= t('date', scope: logs_locale) %></th>
+              <th class="table_tr_submit" tabindex="33"><%= t('submitted_by', scope: logs_locale) %></th>
+              <th class="table_tr_material" tabindex="34"><%= t('material', scope: logs_locale) %></th>
+              <th class="table_tr_weight" tabindex="35"><%= t('weight', scope: logs_locale) %></th>
+              <th><%= t('action', scope: logs_locale) %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <%logs.each do |log|%>
+                <tr>
+                  <td width="17%"><%=date_format(log.collection_date)%></td>
+                  <td width="25%"><%= log.firstName %> <%= log.lastName %></td>
+                  <td width="24%"><%=t 'waste_log.types.'+log.waste_type.name%></td>
+                  <td width="17%"><%= sprintf("%.2f", log.quantity)%> <%=t 'measurement_type.lbs'%></td>
+                  <td width="17%">
+                    <%=  link_to waste_log_delete_path({id: log.id}), remote: true, method: :delete,  data: { confirm: 'Are you sure want to remove ?' } do %>
+                        <%= t('remove', scope: logs_locale) %>
+                    <% end %>
+                  </td>
+                </tr>
+            <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+
+    </div>
+      <%end%>
+</div>
+<%locale_types = 'waste_log.types'%>
+<script>
+    if("<%=logs.size%>" == '0'){ //or empty or whataver
+        $('#pie_chart_log').hide();
+        $('.pie_chart_title').hide();
+    }
+    $(function () {
+
+        // Create the chart
+        chart = new Highcharts.Chart({
+            credits: {
+                enabled: false
+            },
+            chart: {
+                renderTo: 'pie_chart_log',
+                type: 'pie',
+                events: {
+                    load: addTitle,
+                    redraw: addTitle,
+                },
+                credits: {
+                    enabled: false
+                }
+            },
+            backgroundColor: 'red',
+            plotOptions: {
+                pie: {
+                    size: 500
+                }
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            series: [{
+                name: "<%=t('waste_log.index.charttitle')%>",
+                data: <%= raw @graph_hash.map { |log| [t("#{log[:name]}", scope: locale_types),log[:y],log[:color]] } %>,
+                size: '115%',
+                innerSize: '60%',
+                showInLegend:false,
+                dataLabels: {
+                    formatter: function () {
+                        return this.y > 0 ? this.point.y+'%' : null;
+                    },
+                    color: '#ffffff',
+                    distance: -30
+                }
+            }]
+        });
+
+        function addTitle() {
+
+            if (this.title) {
+                this.title.destroy();
+            }
+
+            var r = this.renderer,
+                    x = this.series[0].center[0] + this.plotLeft,
+                    y = this.series[0].center[1] + this.plotTop;
+            this.title = r.text('<%=@graph_data[4]%>%', 0, 0)
+                    .css({
+                        color: '#262626',
+                        fontSize: '18px'
+                    }).hide()
+                    .add();
+
+            var bbox = this.title.getBBox();
+            this.title.attr({
+                x: x - (bbox.width / 2),
+                y: y
+            }).show();
+            this.subtitle = r.text('<br/><%=t("divertedWaste", scope: locale_types)%>', 0, 0)
+                    .css({
+                        color: '#262626',
+                        fontSize: '16px',
+                        width: '200px'
+                    }).hide()
+                    .add();
+
+            var bbox = this.subtitle.getBBox();
+            this.subtitle.attr({
+                x: x - (bbox.width/2),
+                y: y
+            }).show();
+        }
+    });
+
+    $(document).ready(function() {
+        $('#log_table').DataTable( {
+            "language": {
+                "thousands": "."
+            },
+            "paging":   true,
+            "pagingType": "numbers",
+            "searching": false,
+            "info":     false,
+            columnDefs: [
+                { type: 'formatted-num', targets: 3 },
+                { targets: [4], orderable: false }
+            ],
+            "order": [[ 0, "desc" ]],
+        } );
+    } );
+
+
+</script>

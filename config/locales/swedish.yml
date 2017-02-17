@@ -1,0 +1,102 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+swedish:
+  language:
+      english: 'engelsk'
+      arabic: 'arabiska'
+      chinese: 'kinesisk'
+      dutch: 'holländska'
+      french: 'franska'
+      german: 'tysk'
+      hindi: 'hindi'
+      italian: 'italienska'
+      portuguese: 'portugisiska'
+      romanian: 'rumänska'
+      russian: 'ryska'
+      spanish: 'spansk'
+      swedish: 'svenska'
+      turkish: 'turkiska'
+  measurement_type:
+      kgs: 'Kung'
+      lbs: 'Lbs'
+  waste_log:
+    index:
+      title: 'Ange Vikt'
+      store_titile: 'Lagra'
+      log_waste: 'avfall log'
+      weight_placeholder: 'Ange Vikt'
+      date: 'Datum'
+      submitted_by: 'Insänd av'
+      material: 'Material'
+      weight: 'Vikt'
+      action: 'Handling'
+      remove: 'Avlägsna'
+      last7 : 'Senaste 7 dagar'
+      last30 : 'Senast 30 dagar'
+      charttitle: 'avfall log'
+    types:
+      classicRecycling: 'klassiska Återvinning'
+      occCardboard: 'OCC kartong'
+      organicWaste: 'Organiskt avfall'
+      operationalWaste: 'Andra driftavfall'
+      divertedWaste: 'avledas Avfall'
+  drop_list:
+    wastetype:
+      head: 'avfallstyper'
+      sidehead_a: 'Kartong'
+      des_1: 'Återvinning och avfalls dumprar använder termen OCC med hänvisning till kartong. Wellpapp kan lätt kännas igen av dess flerskiktsstruktur; det rafflade eller vågigt mellanskikt mellan pappersark håller wellpapp ljus och ger den kraft att bära produkter.'
+      sidehead_b: 'klassiska Återvinning'
+      des_3: 'Inkluderar allt avfall från blå behållare återvinnings. Material inkluderar flaskor, burkar, papper, kartong (inte i separat kartong återvinning)'
+      sidehead_c: 'Organiskt avfall'
+      des_4: 'Inkluderar avfall från den gröna återvinningsbehållaren (s). Inkluderar matavfall, komposterbara matbehållare, servetter och pappershanddukar, och smutsiga kartong (t.ex. pizzakartonger)'
+      sidehead_d: 'Andra driftavfall'
+      des_5: 'Inkluderar avfall från grå återvinningscontainrar. Det är allt avfall som inte ingår i de andra facken.'
+  drop_list_b:    
+    feedback:
+      head: 'Återkoppling'
+      body: 'Hur skulle du betygsätta din upplevelse?'
+      text: 'ytterligare kommentarer'
+      submit: 'LÄMNA'
+  drop_list_c:
+    settings:
+      head: 'Kontoinställningar'
+      heading_a: 'standard Store'
+      heading_b: 'Standard Vikt Mått'
+      save: 'SPARA'
+  drop_list_d:
+    logout: 
+      head: 'Logga ut?'
+      body: 'Du kommer att förlora osparade poster'
+      confirm: 'BEKRÄFTA'
+  drop_content:
+      wastetype: 'avfallstyper'
+      feedback: 'Återkoppling'
+      settings: 'inställningar'
+      logout: 'logga ut'
+      language: 'språk'
+  
+
+
+
+
+
+

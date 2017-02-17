@@ -1,0 +1,34 @@
+verbose false
+
+begin
+  require 'bundler/setup'
+  require 'rake'
+  require 'rspec/core/rake_task'
+  require 'rubygems/package_task'
+  require 'rdoc/task'
+
+  Dir.glob(File.expand_path('../lib/tasks/**/*.rake', __FILE__)).each { |f| load f }
+rescue LoadError => e
+  puts 'Run `bundle install` to get all development dependencies.'
+  raise e
+end
+
+Bundler::GemHelper.install_tasks
+
+desc 'Run RSpec code examples.'
+task :spec do
+  begin
+    RSpec::Core::RakeTask.new(:rspec)
+    Rake::Task['rspec'].invoke
+  rescue RuntimeError
+    exit(1)
+  end
+end
+
+task :default => :spec
+
+Rake::RDocTask.new(:doc) do |rd|
+  rd.main = 'README.doc'
+  rd.rdoc_files.include 'README.rdoc', 'lib/**/*.rb'
+  rd.options << '--all'
+end

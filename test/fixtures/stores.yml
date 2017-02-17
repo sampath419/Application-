@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rollout: MyString
+  sales_org: MyString
+  country: MyString
+  city: MyString
+  province: MyString
+
+two:
+  name: MyString
+  rollout: MyString
+  sales_org: MyString
+  country: MyString
+  city: MyString
+  province: MyString
